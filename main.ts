@@ -37,7 +37,9 @@ if (existsSync(shotsDir)) {
 // The dossier is the judge's view of the entry: the game's source text and
 // the screenshots, as the library writes them. The caps below are the
 // scorer's own (see the competition's RULES.txt): the text cap shapes the
-// bytes, the rest refuse an entry the scorer would refuse.
+// bytes, the rest refuse an entry the scorer would refuse. The dossier must
+// come out byte for byte the same on every run, so nothing here reads the
+// clock, the network, or anything outside this repository.
 const dossier = buildDossier(outputDir, {
   text_max_bytes: 163840,
   screenshots: { max: 4, max_bytes: 262144 },
